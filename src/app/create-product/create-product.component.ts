@@ -2,6 +2,7 @@ import { ProductService } from '../product.service';
 import { Product } from '../product';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-create-product',
@@ -14,7 +15,7 @@ export class CreateProductComponent implements OnInit {
   submitted=false;
 
   constructor(private productService:ProductService,
-    private router:Router) { }
+    private router:Router,private location: Location) { }
 
   ngOnInit() {
   }
@@ -38,6 +39,10 @@ export class CreateProductComponent implements OnInit {
 
   gotoList() {
     this.router.navigate(['/products']);
+  }
+
+  back(): void {
+    this.location.back()
   }
 
 }

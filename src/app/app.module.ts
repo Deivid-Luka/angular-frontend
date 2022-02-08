@@ -8,6 +8,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { ProductListComponent } from './product-list/product-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UpdateProductComponent } from './update-product/update-product.component';
+import { DeleteProductComponent } from './delete-product/delete-product.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { UpdateProductComponent } from './update-product/update-product.componen
     ProductDetailsComponent,
     ProductListComponent,
     UpdateProductComponent,
+    DeleteProductComponent,
   ],
   imports: [
     BrowserModule,

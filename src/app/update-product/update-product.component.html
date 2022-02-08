@@ -26,7 +26,7 @@
         <input type="text" class="form-control" id="detailedDescription" required [(ngModel)]="product.detailedDescription" name="detailedDescription">
     </div>
 
-    <button type="submit" class="btn btn-success">Submit</button>
-    <button  (click)="back()" class="btn btn-danger">Back</button>
+    <button type="submit" [disabled]="!product.code || !product.amount || !product.detailedDescription || !product.price || !product.description" class="btn btn-success">Update</button>
+    <button  (click)="back()" class="btn btn-danger">Cancel</button>
   </form>
 </div>

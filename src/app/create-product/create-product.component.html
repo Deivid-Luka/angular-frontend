@@ -27,6 +27,7 @@
     </div>
     <br>
     <button type="submit" [disabled]="!product.code || !product.amount || !product.detailedDescription || !product.price || !product.description" class="btn btn-success">Submit</button>
+    <button (click)="back()" class="btn btn-danger">Cancel</button>
   </form>
 </div>
 <div [hidden]="!submitted">

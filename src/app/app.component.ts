@@ -32,16 +32,9 @@ export class AppComponent {
     }
 
   deleteProduct(id: number) {
-    var result=confirm("Want to delete?");
-    if(result){
-      this.productService.deleteProduct(id)
-      .subscribe(
-        (        data): void => {
-          console.log(data);
-          this.reloadData();
-        },
-        error => console.log(error));
-    }
+    this.router.navigate(['delete', id]);
+    this.hide();
+    this.isShowRoute = false;
   }
 
   productDetails(id: number){

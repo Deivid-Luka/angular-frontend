@@ -1,0 +1,28 @@
+<h2>Delete Product</h2> 
+<div *ngIf="product">
+  <div>
+    <label for="name">Code</label>
+    <input type="number" class="form-control" id="amount" placeholder={{product.code}} name="amount" disabled>
+
+  </div>
+  <div>
+    <label for="name">Amount</label>
+    <input type="number" class="form-control" id="amount" placeholder={{product.amount}} name="amount" disabled>
+    
+  </div>
+  <div>
+    <label for="name">Price</label>
+    <input type="number" class="form-control" id="amount" placeholder={{product.price}} name="amount" disabled>
+  </div>
+  <div>
+    <label for="name">Description</label>
+    <input type="number" class="form-control" id="amount" placeholder={{product.description}} name="amount" disabled>
+  </div> 
+  <div>
+    <label for="name">Detailed Description</label>
+    <input type="number" class="form-control" id="amount" placeholder={{product.detailedDescription}} name="amount" disabled>
+  </div>   
+</div>
+<br>
+<button (click)="deleteProduct(product.id)" class="btn btn-danger">Delete</button>  
+<button (click)="back()" class="btn btn-info">Cancel</button><br>  

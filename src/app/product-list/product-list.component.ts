@@ -28,25 +28,14 @@ export class ProductListComponent implements OnInit {
   }
 
   deleteProduct(id: number) {
-    var result=confirm("Want to delete?");
-    if(result){
-      this.productService.deleteProduct(id)
-      .subscribe(
-        (        data): void => {
-          console.log(data);
-          this.reloadData();
-        },
-        error => console.log(error));
-    }
+    this.router.navigate(['delete', id]);
   }
 
   productDetails(id: number){
     this.router.navigate(['details', id]);
-    this.isShow = !this.isShow;
   }
   productUpdate(id:number){
     this.router.navigate(['update',id]);
-    this.isShow = !this.isShow;
   }
 
 

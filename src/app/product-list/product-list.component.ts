@@ -1,31 +1,30 @@
-import { ProductDetailsComponent } from './product-details/product-details.component';
+import { ProductDetailsComponent } from '../product-details/product-details.component';
 import { Observable } from "rxjs";
-import { ProductService } from "./product.service";
-import { Product } from "./product";
+import { ProductService } from "../product.service";
+import { Product } from "../product";
 import { Component, OnInit } from "@angular/core";
 import { Router } from '@angular/router';
-import { isFormattedError } from '@angular/compiler';
-import { isNull } from '@angular/compiler/src/output/output_ast';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-product-list',
+  templateUrl: './product-list.component.html',
+  styleUrls: ['./product-list.component.css']
 })
-export class AppComponent {
-  title = 'angular-frontend';
+export class ProductListComponent implements OnInit {
+  
   products: Observable<Product[]>;
-  searchCriteria:any;
+
 
   constructor(private productService: ProductService,
     private router: Router) { }
 
-    ngOnInit(): void {
-    }
-  
-    reloadData() {
-      this.products = this.productService.search(this.searchCriteria);
-    }
+  ngOnInit(): void {
+    this.reloadData();
+  }
+
+  reloadData() {
+    this.products = this.productService.getProductsList();
+  }
 
   deleteProduct(id: number) {
     var result=confirm("Want to delete?");

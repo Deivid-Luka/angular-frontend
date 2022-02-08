@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../product';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../product.service';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-update-product',
@@ -14,7 +15,7 @@ export class UpdateProductComponent implements OnInit {
   product: Product;
 
   constructor(private route: ActivatedRoute,private router: Router,
-    private productService: ProductService) { }
+    private productService: ProductService, private location: Location) { }
 
   ngOnInit() {
     this.product = new Product();
@@ -42,6 +43,9 @@ export class UpdateProductComponent implements OnInit {
 
   gotoList() {
     this.router.navigate(['/product']);
+  }
+  back(): void {
+    this.location.back()
   }
 
 }

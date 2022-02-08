@@ -23,9 +23,10 @@ export class CreateProductComponent implements OnInit {
     this.product = new Product();
   }
   save(){
-    this.productService.createProduct(this.product).subscribe(data => {
+    this.productService.createProduct(this.product).subscribe(async data => {
       console.log(data)
       this.product = new Product();
+      await new Promise(f => setTimeout(f, 1000));
       this.gotoList();
     },
     error => console.log(error));

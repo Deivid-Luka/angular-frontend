@@ -16,6 +16,8 @@ export class AppComponent {
   title = 'angular-frontend';
   products: Observable<Product[]>;
   searchCriteria:any;
+  isShow = false;
+  isShowRoute = false;
 
   constructor(private productService: ProductService,
     private router: Router) { }
@@ -25,6 +27,8 @@ export class AppComponent {
   
     reloadData() {
       this.products = this.productService.search(this.searchCriteria);
+      this.isShow = false;
+      this.isShowRoute = true;
     }
 
   deleteProduct(id: number) {
@@ -42,10 +46,17 @@ export class AppComponent {
 
   productDetails(id: number){
     this.router.navigate(['details', id]);
+    this.hide();
+    this.isShowRoute = false;
   }
   productUpdate(id:number){
     this.router.navigate(['update',id]);
+    this.hide();
+    this.isShowRoute = false;
   }
-
+  hide(){
+    this.isShow = true;
+    this.isShowRoute = false;
+  }
 
 }

@@ -2,17 +2,17 @@
     <div class="panel-heading">
       <h2>Product List</h2>
     </div>
-    <table id="products">
+    <table [hidden] = "isShow" id="products">
       <tr>
         <th>ID</th>
-        <th>Amount</th>
+        <th>Code</th>
         <th>Price</th>
         <th>Description</th>
-        <th>Detailed Description</th>
+        <th></th>
       </tr>
       <tr *ngFor="let product of products | async">
         <td>{{product.id}}</td>
-        <td>{{product.name}}</td>
+        <td>{{product.code}}</td>
         <td>{{product.amount}}</td>
         <td>{{product.price}}</td>
         <td><button (click)="deleteProduct(product.id)" class="btn btn-danger">Delete</button>

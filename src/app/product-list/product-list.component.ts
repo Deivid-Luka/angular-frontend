@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class ProductListComponent implements OnInit {
   
   products: Observable<Product[]>;
+  isShow = false;
 
 
   constructor(private productService: ProductService,
@@ -41,9 +42,11 @@ export class ProductListComponent implements OnInit {
 
   productDetails(id: number){
     this.router.navigate(['details', id]);
+    this.isShow = !this.isShow;
   }
   productUpdate(id:number){
     this.router.navigate(['update',id]);
+    this.isShow = !this.isShow;
   }
 
 

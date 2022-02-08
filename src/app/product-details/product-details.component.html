@@ -1,24 +1,27 @@
 <h2>Product Details</h2> 
-
-<hr/>
 <div *ngIf="product">
   <div>
-    <label><b>Name: </b></label> {{product.name}}
+    <label for="name">Code</label>
+    <input type="number" class="form-control" id="amount" placeholder={{product.code}} name="amount" disabled>
+
   </div>
   <div>
-    <label><b>Amount: </b></label> {{product.amount}}
+    <label for="name">Amount</label>
+    <input type="number" class="form-control" id="amount" placeholder={{product.amount}} name="amount" disabled>
+    
   </div>
   <div>
-    <label><b>Price: </b></label> {{product.price}}
+    <label for="name">Price</label>
+    <input type="number" class="form-control" id="amount" placeholder={{product.price}} name="amount" disabled>
   </div>
   <div>
-    <label><b>Description: </b></label> {{product.description}}
+    <label for="name">Description</label>
+    <input type="number" class="form-control" id="amount" placeholder={{product.description}} name="amount" disabled>
   </div> 
   <div>
-    <label><b>Detailed Description: </b></label> {{product.detailedDescription}}
+    <label for="name">Detailed Description</label>
+    <input type="number" class="form-control" id="amount" placeholder={{product.detailedDescription}} name="amount" disabled>
   </div>   
 </div>
-
 <br>
-<br>
-<button (click)="list()" class="btn btn-primary">Back to Product List</button><br>
+<button (click)="back()" class="btn btn-danger">Back</button><br>  

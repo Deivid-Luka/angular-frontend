@@ -3,6 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ProductService } from '../product.service';
 import { ProductListComponent } from '../product-list/product-list.component';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-product-details',
@@ -15,7 +16,7 @@ export class ProductDetailsComponent implements OnInit {
   product: Product;
 
   constructor(private route: ActivatedRoute,private router: Router,
-    private ProductService: ProductService) { }
+    private ProductService: ProductService,private location: Location) { }
 
   ngOnInit() {
     this.product = new Product();
@@ -28,8 +29,9 @@ export class ProductDetailsComponent implements OnInit {
         this.product = data;
       }, error => console.log(error));
   }
-  list(){
-    this.router.navigate(['products']);
+
+  back(): void {
+    this.location.back()
   }
 
 }
